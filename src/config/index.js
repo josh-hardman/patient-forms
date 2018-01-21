@@ -1,20 +1,43 @@
-export const loadForm = (practice, form) => configTree[practice][form];
+export const loadFormData = (practice, form) =>
+  configTree[practice][form].fields;
+
+export const loadFormMeta = (practice, form) => configTree[practice][form].meta;
 
 const configTree = {
   "my-dental": {
     "new-patient": {
-      logo: "Awesome Logo",
-      email: "jhardman0830@gmail.com",
+      meta: {
+        logo: "Awesome Logo",
+        email: "jhardman0830@gmail.com"
+      },
       fields: [
-        //  responsive width
-        //  group by row
-        //  alignment
-        //  field type
         {
           type: "text",
           label: "First Name",
-          placeholder: "Jimmy",
-          required: true
+          placeHolder: "Jimmy",
+          required: true,
+          col: 3
+        },
+        {
+          type: "text",
+          label: "First Name",
+          placeHolder: "Jimmy",
+          required: true,
+          col: 3
+        },
+        {
+          type: "text",
+          label: "First Name",
+          placeHolder: "Jimmy",
+          required: true,
+          col: 3
+        },
+        {
+          type: "text",
+          label: "First Name",
+          placeHolder: "Jimmy",
+          required: true,
+          col: 3
         }
       ]
     }
