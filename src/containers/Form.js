@@ -1,29 +1,31 @@
 import React, { Component } from "react";
-import { loadFormData, loadFormMeta } from "../config";
+import { loadFormConfig } from "../config";
 import Text from "../components/Text";
 import v4 from "uuid";
 
 class Form extends Component {
-  state = {
-    meta: loadFormMeta(
-      this.props.match.params.practice,
-      this.props.match.params.form
-    ),
-    data: loadFormData(
-      this.props.match.params.practice,
-      this.props.match.params.form
-    )
-  };
+  state = {};
 
   render() {
-    const { match: { params } } = this.props;
-    const { data, meta } = this.state;
-    console.log(data);
+    const { match: { params: { practice, form } } } = this.props;
+
+    const config = loadFormConfig(practice, form);
+
+    console.log(config);
+
     return (
       <form>
-        {data.map((field, i) => {
+        {config.fields.map((field, i) => {
           if (field.type === "text")
-            return <Text key={i} id={v4()} {...field} />;
+            return (
+              <Text
+                key={i}
+                id={v4()}
+                value="value"
+                onChange={() => console.log("clicky")}
+                {...field}
+              />
+            );
 
           return null;
         })}
