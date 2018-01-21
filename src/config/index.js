@@ -1,7 +1,16 @@
 export const loadFormData = (practice, form) =>
-  configTree[practice][form].fields;
+  configTree[practice] &&
+  configTree[practice][form] &&
+  configTree[practice][form].fields
+    ? configTree[practice][form].fields
+    : [];
 
-export const loadFormMeta = (practice, form) => configTree[practice][form].meta;
+export const loadFormMeta = (practice, form) =>
+  configTree[practice] &&
+  configTree[practice][form] &&
+  configTree[practice][form].meta
+    ? configTree[practice][form].meta
+    : {};
 
 const configTree = {
   "my-dental": {

@@ -5,22 +5,20 @@ import v4 from "uuid";
 
 class Form extends Component {
   state = {
-    meta: {},
-    data: []
+    meta: loadFormMeta(
+      this.props.match.params.practice,
+      this.props.match.params.form
+    ),
+    data: loadFormData(
+      this.props.match.params.practice,
+      this.props.match.params.form
+    )
   };
-
-  componentDidMount() {
-    const { match: { params } } = this.props;
-    this.setState({
-      meta: loadFormMeta(params.practice, params.form),
-      data: loadFormData(params.practice, params.form)
-    });
-  }
 
   render() {
     const { match: { params } } = this.props;
     const { data, meta } = this.state;
-
+    console.log(data);
     return (
       <form>
         {data.map((field, i) => {
