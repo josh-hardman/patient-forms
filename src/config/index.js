@@ -12,24 +12,24 @@ const configTree = {
       },
       data: [
         {
-          type: "text",
-          label: "First Name",
-          placeHolder: "Jimmy",
-          required: true,
-          col: 4
-        },
-        {
-          type: "date",
-          label: "Birthdate",
-          required: true,
-          col: 4
-        },
-        {
-          type: "number",
-          label: "Favorite Number",
+          type: "email",
+          label: "Email",
+          placeHolder: "Email",
           required: true,
           col: 4
         }
+        // {
+        //   type: "date",
+        //   label: "Birthdate",
+        //   required: true,
+        //   col: 4
+        // },
+        // {
+        //   type: "number",
+        //   label: "Favorite Number",
+        //   required: true,
+        //   col: 4
+        // }
       ]
     }
   }

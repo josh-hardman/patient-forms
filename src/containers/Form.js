@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { loadFormConfig } from "../config";
-import Text from "../components/Text";
-import Date from "../components/Date";
+import Email from "../components/Email";
 import v4 from "uuid";
 import styled from "styled-components";
 
@@ -36,16 +35,14 @@ class Form extends Component {
       <Wrapper>
         <form className="form-row" onSubmit={this.submitForm}>
           {config.data.map(({ type, ...rest }, i) => {
-            if (type === "text" || type === "date" || type === "number")
+            if (type === "email")
               return (
-                <Text
+                <Email
                   key={i}
-                  type={type}
                   index={i}
                   id={id}
-                  value={this.state[id]}
+                  value={(this.state[i] && this.state[i].value) || ""}
                   onChange={this.updateValue}
-                  valid={true}
                   {...rest}
                 />
               );

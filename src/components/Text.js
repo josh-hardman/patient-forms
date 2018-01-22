@@ -9,7 +9,7 @@ const Text = ({
   col = 12,
   valid,
   value,
-  type,
+  type = "text",
   index,
   onChange
 }) => (
@@ -36,7 +36,7 @@ Text.propTypes = {
   valid: PropTypes.bool,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   index: PropTypes.number.isRequired,
-  type: PropTypes.string.isRequired,
+  type: PropTypes.string,
   onChange: PropTypes.func.isRequired
 };
 
