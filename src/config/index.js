@@ -12,6 +12,13 @@ const configTree = {
       },
       data: [
         {
+          type: "text",
+          label: "First Name",
+          placeHolder: "First Name",
+          required: true,
+          col: 4
+        },
+        {
           type: "email",
           label: "Email",
           placeHolder: "Email",
