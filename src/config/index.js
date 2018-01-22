@@ -1,6 +1,6 @@
-export const loadFormConfig = (practice, form) =>
-  configTree[practice] && configTree[practice][form]
-    ? configTree[practice][form]
+export const loadFormConfig = (practice, data) =>
+  configTree[practice] && configTree[practice][data]
+    ? configTree[practice][data]
     : {};
 
 const configTree = {
@@ -10,20 +10,25 @@ const configTree = {
         logo: "Awesome Logo",
         email: "jhardman0830@gmail.com"
       },
-      fields: [
+      data: [
         {
           type: "text",
           label: "First Name",
           placeHolder: "Jimmy",
           required: true,
-          col: 12
+          col: 4
         },
         {
-          type: "text",
-          label: "Jen's name",
-          placeHolder: "Jenny",
+          type: "date",
+          label: "Birthdate",
           required: true,
-          col: 12
+          col: 4
+        },
+        {
+          type: "number",
+          label: "Favorite Number",
+          required: true,
+          col: 4
         }
       ]
     }

@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import { loadFormConfig } from "../config";
 import Text from "../components/Text";
+import Date from "../components/Date";
 import v4 from "uuid";
+import styled from "styled-components";
+
+const Wrapper = styled.div`padding: 8px;`;
 
 class Form extends Component {
   state = {};
@@ -29,27 +33,30 @@ class Form extends Component {
     const id = v4();
 
     return (
-      <form onSubmit={this.submitForm}>
-        {config.fields.map((field, i) => {
-          if (field.type === "text")
-            return (
-              <Text
-                key={i}
-                index={i}
-                id={id}
-                value={this.state[id]}
-                onChange={this.updateValue}
-                valid={true}
-                {...field}
-              />
-            );
+      <Wrapper>
+        <form className="form-row" onSubmit={this.submitForm}>
+          {config.data.map(({ type, ...rest }, i) => {
+            if (type === "text" || type === "date" || type === "number")
+              return (
+                <Text
+                  key={i}
+                  type={type}
+                  index={i}
+                  id={id}
+                  value={this.state[id]}
+                  onChange={this.updateValue}
+                  valid={true}
+                  {...rest}
+                />
+              );
 
-          return null;
-        })}
-        <button className="btn btn-primary" type="submit">
-          Submit
-        </button>
-      </form>
+            return null;
+          })}
+          <button className="btn btn-primary" type="submit">
+            Submit
+          </button>
+        </form>
+      </Wrapper>
     );
   }
 }

@@ -9,14 +9,13 @@ const Text = ({
   col = 12,
   valid,
   value,
-  type,
   index,
   onChange
 }) => (
   <div className={`col-sm-${col}`}>
     <label htmlFor={id}>{label}</label>
     <input
-      type={type}
+      type="date"
       className={classnames("form-control", { "is-invalid": !valid })}
       id={id}
       placeholder={placeHolder}
@@ -36,7 +35,6 @@ Text.propTypes = {
   valid: PropTypes.bool,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   index: PropTypes.number.isRequired,
-  type: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired
 };
 
