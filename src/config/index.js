@@ -16,14 +16,14 @@ const configTree = {
           label: "First Name",
           placeHolder: "Jimmy",
           required: true,
-          col: 3
+          col: 12
         },
         {
           type: "text",
           label: "Jen's name",
           placeHolder: "Jenny",
           required: true,
-          col: 3
+          col: 12
         }
       ]
     }
