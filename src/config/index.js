@@ -24,13 +24,13 @@ const configTree = {
           placeHolder: "Email",
           required: true,
           col: 4
+        },
+        {
+          type: "date",
+          label: "Birthdate",
+          required: true,
+          col: 4
         }
-        // {
-        //   type: "date",
-        //   label: "Birthdate",
-        //   required: true,
-        //   col: 4
-        // },
         // {
         //   type: "number",
         //   label: "Favorite Number",

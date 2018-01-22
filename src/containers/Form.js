@@ -38,7 +38,7 @@ class Form extends Component {
       <Wrapper>
         <form className="form-row" onSubmit={this.submitForm}>
           {config.data.map(({ type, ...rest }, i) => {
-            if (type === "text")
+            if (type === "text" || type === "date")
               return (
                 <Text
                   key={i}
@@ -47,6 +47,7 @@ class Form extends Component {
                   value={this.getValue(i)}
                   onChange={this.updateValue}
                   valid={true}
+                  type={type}
                   {...rest}
                 />
               );
