@@ -5,11 +5,16 @@
   "dependencies": {
     "bootstrap": "^4.0.0-beta.3",
     "classnames": "^2.2.5",
+    "history": "^4.7.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
+    "react-router-redux": "next",
     "react-scripts": "1.1.0",
     "reactstrap": "^5.0.0-alpha.4",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
     "styled-components": "^2.4.0",
     "uuid": "^3.2.1"
   },

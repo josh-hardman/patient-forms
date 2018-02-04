@@ -1,15 +1,15 @@
-import React from "react";
-import PropTypes from "prop-types";
-import classnames from "classnames";
+import React from 'react'
+import PropTypes from 'prop-types'
+import classnames from 'classnames'
 
 const Text = ({
   id,
   label,
   placeHolder,
-  col = 12,
+  col = `12`,
   valid,
   value,
-  type = "text",
+  type = `text`,
   index,
   onChange
 }) => (
@@ -17,7 +17,7 @@ const Text = ({
     <label htmlFor={id}>{label}</label>
     <input
       type={type}
-      className={classnames("form-control", { "is-invalid": !valid })}
+      className={classnames('form-control', { 'is-invalid': !valid })}
       id={id}
       placeholder={placeHolder}
       value={value}
@@ -26,7 +26,7 @@ const Text = ({
       data-label={label}
     />
   </div>
-);
+)
 
 Text.propTypes = {
   id: PropTypes.string.isRequired,
@@ -38,6 +38,6 @@ Text.propTypes = {
   index: PropTypes.number.isRequired,
   type: PropTypes.string,
   onChange: PropTypes.func.isRequired
-};
+}
 
-export default Text;
+export default Text
