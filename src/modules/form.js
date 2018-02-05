@@ -1,3 +1,7 @@
+import fire from '../fire'
+
+const firebase = fire.database()
+
 export const FORM_DATA_REQUESTED = 'counter/FORM_DATA_REQUESTED'
 export const FORM_DATA = 'counter/FORM_DATA'
 
@@ -16,7 +20,7 @@ export default (state = initialState, action) => {
     case FORM_DATA:
       return {
         ...state,
-        form: { data: 'it arrived!' },
+        ...action.data,
         isFetching: !state.isFetching
       }
 
@@ -25,28 +29,23 @@ export default (state = initialState, action) => {
   }
 }
 
-export const increment = () => {
+export const fetchFormData = (practice, formType) => {
   return dispatch => {
     dispatch({
       type: FORM_DATA_REQUESTED
     })
 
-    dispatch({
-      type: FORM_DATA
-    })
-  }
-}
-
-export const fetchFormData = () => {
-  return dispatch => {
-    dispatch({
-      type: FORM_DATA_REQUESTED
-    })
-
-    return setTimeout(() => {
-      dispatch({
-        type: FORM_DATA
+    return firebase
+      .ref('forms')
+      .orderByChild('practice')
+      .equalTo(practice)
+      .once('value')
+      .then(snapshot => {
+        const data = snapshot.val().filter(i => i.type === formType)[0]
+        return dispatch({
+          type: FORM_DATA,
+          data
+        })
       })
-    }, 3000)
   }
 }
